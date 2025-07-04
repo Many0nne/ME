@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('./core/theme/fonts/Courier Prime/Courier Prime Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  @apply bg-black text-white font-mono;
+}
+
+/* Scanlines effect */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(61,107,74,0.10) 0px,
+    rgba(61,107,74,0.10) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* Glow effect for title (soft) */
+.glow-soft {
+  text-shadow:
+    0 0 4px #3D6B4A,
+    0 0 8px #3D6B4A;
+}

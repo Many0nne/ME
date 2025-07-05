@@ -1,69 +1,78 @@
-# React + TypeScript + Vite
+# OS React — Customizable Themed Portfolio (Alien & more)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an interactive "OS"-style portfolio built with React + TypeScript + Vite, designed to be **highly customizable with movie themes** (Alien, and more to come). The goal is to offer an immersive, unique experience adaptable to different cinematic universes.
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Offer an original personal portfolio inspired by iconic movie interfaces.
+- Allow dynamic theme switching (Alien, then others: Lawrence of Arabia, Zodiac, Heat, etc.).
+- Make each theme immersive: colors, fonts, animations, wallpapers, UI/UX, music, etc.
 
-## Expanding the ESLint configuration
+## Main Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Animated boot screen** (GSAP/SplitType) faithful to each universe.
+- **Dynamic themes** (Alien, and future themes): colors, fonts, wallpapers, UI/UX variations, music.
+- **Interactive desktop** with draggable windows, keyboard-navigable vertical menu, contextual module display.
+- **Content modules**: Skills, Projects, Hobbies, Journey, Contact.
+- **Keyboard navigation** (vertical and horizontal) for all menus and tabs.
+- **Background music** according to the theme.
+- **AnimatedText component** for letter-by-letter animation, reusable everywhere.
+- **Contact form** with EmailJS (public key via environment variable).
+- **Responsive** and design inspired by retro-futuristic or cyberpunk interfaces depending on the theme.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- `src/components/`: all modules (BootScreen, Desktop, DesktopArea, Window, AnimatedText, Competences, Projets, Hobbies, Parcours, Contact…)
+- `src/core/theme/`: theme management, types, providers, theme files (one per universe).
+- `public/`: static assets (wallpapers, sounds…)
+- `index.css`: global styles, fonts, scanline effects.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Installation & Launch
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repo**  
+   `git clone ...`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies**  
+   `npm install`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Configure EmailJS**  
+   Create a `.env` file at the root:
+   ```
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   ```
+
+4. **Start the project**  
+   `npm run dev`
+
+## Add a New Movie Theme
+
+1. Create a file in `src/core/theme/themes/` (e.g. `matrix.ts`, `bladeRunner.ts`...)
+2. Define the colors, fonts, wallpapers, effects, music, etc. specific to the universe.
+3. Add the theme to the theme selector (`Desktop.tsx`).
+4. Customize the modules if needed to match the movie's atmosphere.
+
+## Customization
+
+- **Themes**: editable and extensible in `src/core/theme/themes/`
+- **Modules**: each module is an independent component, easily editable.
+- **Effects**: scanlines, glow, GSAP/SplitType animations, music, etc.
+
+## Tech Stack
+
+- React 18 + TypeScript
+- Vite
+- TailwindCSS
+- Zustand (window management)
+- GSAP, SplitType (animations)
+- EmailJS (contact)
+- Custom fonts
+
+---
+
+Project by Barillon Terry — Experimental portfolio inspired by Alien/MU-TH-UR 6000 and other universes to come.
+
+---
+
+> For any questions or suggestions, use the "Contact Me" section of the OS.
